@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 股票與 ETF 投資分析助手 - 作品頁</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 900px; background: #fff; padding: 35px; margin: 20px auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1a365d; border-bottom: 3px solid #2b6cb0; padding-bottom: 10px; }
+        h2 { color: #2c5282; margin-top: 30px; border-left: 4px solid #3182ce; padding-left: 10px; }
+        code { background: #edf2f7; color: #2d3748; padding: 3px 8px; border-radius: 4px; font-family: monospace; }
+        pre { background: #1a202c; color: #e2e8f0; padding: 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; }
+        ul, ol { padding-left: 20px; }
+        .highlight { background-color: #ebf8ff; border: 1px solid #bee3f8; padding: 15px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 AI 股票與 ETF 投資分析助手</h1>
+        
+        <h2>一、專案說明（做了什麼）</h2>
+        <p>本專案基於 Python 與 Google Gemini API (gemini-2.5-flash)，針對台股金融股（如台中銀、中信金）及熱門 ETF 構建一款具備<b>即時串流回應 (Streaming)</b> 功能的投資輔助工具。</p>
+
+        <h2>二、如何執行（執行步驟）</h2>
+        <ol>
+            <li>複製專案儲存庫：<code>git clone https://github.com/meat1030/ai-platform-week1.git</code></li>
+            <li>建立 <code>.env</code> 環境變數檔並寫入：<code>LLM_API_KEY=你的API金鑰</code></li>
+            <li>安裝必要 Python 套件：<code>C:\Users\a0981\AppData\Local\Python\pythoncore-3.15-64\python.exe -m pip install google-genai python-dotenv</code></li>
+            <li>執行主程式：<code>C:\Users\a0981\AppData\Local\Python\pythoncore-3.15-64\python.exe app.py</code></li>
+        </ol>
+
+        <h2>三、執行結果展報</h2>
+        <pre>
+=== 📊 AI 股票與 ETF 投資分析助手 ===
+請輸入欲分析的股票名稱或標的 (例如: 台中銀 / 中信金 / 0050): 台中銀
+
+🤖 AI 正在進行分析與串流輸出中...
+
+【台中銀 (2812) 投資特色分析】
+1. 核心優勢：近年營運穩健，股利發放包含股票與現金股利，具備優異的價量累積表現與長期存股價值。
+2. 潛在風險：受國內整體金融利差與市場利率環境變化影響。
+3. 投資建議：適合注重股息收益與長期資產累積的投資人分批佈局。
+
+✅ 分析完成！
+        </pre>
+
+        <h2>四、AI 使用說明與賦能體驗</h2>
+        <div class="highlight">
+            <ul>
+                <li><b>使用工具：</b>Google Gemini API、VS Code、Git/GitHub Actions。</li>
+                <li><b>應用情境：</b>利用 AI 進行環境排錯、指令除錯、網頁樣式排版及 API 串流邏輯設計。</li>
+                <li><b>修改與驗證：</b>驗證並導入 <code>.gitignore</code> 安全隔離機制，確保 API Key 無論在本機或提交歷史中都不洩漏。</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
