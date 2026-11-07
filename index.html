@@ -3,56 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 股票與 ETF 投資分析助手 - 作品頁</title>
+    <title>AI 股票與 ETF 投資分析助手 - 專案作品頁</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
-        .container { max-width: 900px; background: #fff; padding: 35px; margin: 20px auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #1a365d; border-bottom: 3px solid #2b6cb0; padding-bottom: 10px; }
-        h2 { color: #2c5282; margin-top: 30px; border-left: 4px solid #3182ce; padding-left: 10px; }
-        code { background: #edf2f7; color: #2d3748; padding: 3px 8px; border-radius: 4px; font-family: monospace; }
-        pre { background: #1a202c; color: #e2e8f0; padding: 18px; border-radius: 8px; overflow-x: auto; font-size: 14px; }
-        ul, ol { padding-left: 20px; }
-        .highlight { background-color: #ebf8ff; border: 1px solid #bee3f8; padding: 15px; border-radius: 6px; }
+        :root {
+            --primary: #1e3a8a;
+            --accent: #2563eb;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 30px 20px;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .badge {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 35px;
+            padding-left: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* 技術架構圖樣式 */
+        .architecture-box {
+            background: #f1f5f9;
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .arch-node {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .arch-arrow {
+            font-size: 1.5rem;
+            color: #64748b;
+        }
+
+        /* 比較表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Terminal 終端機模擬器 */
+        .terminal {
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', Consolas, Monaco, monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.5;
+        }
+
+        .terminal-header {
+            color: #64748b;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 5px;
+        }
+
+        .highlight-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+
+<div class="container">
+    <header>
         <h1>📊 AI 股票與 ETF 投資分析助手</h1>
-        
-        <h2>一、專案說明（做了什麼）</h2>
-        <p>本專案基於 Python 與 Google Gemini API (gemini-2.5-flash)，針對台股金融股（如台中銀、中信金）及熱門 ETF 構建一款具備<b>即時串流回應 (Streaming)</b> 功能的投資輔助工具。</p>
-
-        <h2>二、如何執行（執行步驟）</h2>
-        <ol>
-            <li>複製專案儲存庫：<code>git clone https://github.com/meat1030/ai-platform-week1.git</code></li>
-            <li>建立 <code>.env</code> 環境變數檔並寫入：<code>LLM_API_KEY=你的API金鑰</code></li>
-            <li>安裝必要 Python 套件：<code>C:\Users\a0981\AppData\Local\Python\pythoncore-3.15-64\python.exe -m pip install google-genai python-dotenv</code></li>
-            <li>執行主程式：<code>C:\Users\a0981\AppData\Local\Python\pythoncore-3.15-64\python.exe app.py</code></li>
-        </ol>
-
-        <h2>三、執行結果展報</h2>
-        <pre>
-=== 📊 AI 股票與 ETF 投資分析助手 ===
-請輸入欲分析的股票名稱或標的 (例如: 台中銀 / 中信金 / 0050): 台中銀
-
-🤖 AI 正在進行分析與串流輸出中...
-
-【台中銀 (2812) 投資特色分析】
-1. 核心優勢：近年營運穩健，股利發放包含股票與現金股利，具備優異的價量累積表現與長期存股價值。
-2. 潛在風險：受國內整體金融利差與市場利率環境變化影響。
-3. 投資建議：適合注重股息收益與長期資產累積的投資人分批佈局。
-
-✅ 分析完成！
-        </pre>
-
-        <h2>四、AI 使用說明與賦能體驗</h2>
-        <div class="highlight">
-            <ul>
-                <li><b>使用工具：</b>Google Gemini API、VS Code、Git/GitHub Actions。</li>
-                <li><b>應用情境：</b>利用 AI 進行環境排錯、指令除錯、網頁樣式排版及 API 串流邏輯設計。</li>
-                <li><b>修改與驗證：</b>驗證並導入 <code>.gitignore</code> 安全隔離機制，確保 API Key 無論在本機或提交歷史中都不洩漏。</li>
-            </ul>
+        <p>基於 Python 與 Google Gemini API 打造之智慧金融分析工具與自動化部署平台。</p>
+        <div class="badge-group">
+            <span class="badge">Python 3.15</span>
+            <span class="badge">Gemini 2.5 Flash</span>
+            <span class="badge">Streaming API</span>
+            <span class="badge badge-success">GitHub Actions 綠燈過關</span>
         </div>
+    </header>
+
+    <!-- 一、專案說明 -->
+    <h2>一、專案簡介與架構（做了什麼）</h2>
+    <p>本專案針對台股個股（如台中銀、中信金）及熱門 ETF 進行即時個股特性分析。核心後端使用 Python 呼叫 Google Gemini API，實現<b>串流輸出 (Streaming API)</b>，提升使用者互動體驗。</p>
+
+    <div class="architecture-box">
+        <div class="arch-node">👤 使用者輸入標的</div>
+        <div class="arch-arrow">➔</div>
+        <div class="arch-node">🐍 Python (app.py)</div>
+        <div class="arch-arrow">➔</div>
+        <div class="arch-node">🤖 Gemini 2.5 API</div>
+        <div class="arch-arrow">➔</div>
+        <div class="arch-node">⚡ 即時串流解析</div>
     </div>
+
+    <!-- 二、執行步驟 -->
+    <h2>二、快速執行指南（怎麼執行）</h2>
+    <p>可透過傳統 <code>pip</code> 或高效能環境管理器 <code>uv</code> 執行本專案：</p>
+    <div class="terminal">
+        <div class="terminal-header">Terminal / Command Prompt</div>
+        # 1. 複製專案儲存庫<br>
+        git clone https://github.com/meat1030/ai-platform-week1.git<br>
+        cd ai-platform-week1<br><br>
+        # 2. 配置 .env 金鑰檔案<br>
+        echo "LLM_API_KEY=your_gemini_api_key_here" > .env<br><br>
+        # 3. 安裝依賴套件並執行程式 (pip / uv 均支援)<br>
+        python -m pip install google-genai python-dotenv<br>
+        python app.py &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 亦可直接用 uv 執行: uv run app.py
+    </div>
+
+    <!-- 三、執行結果 -->
+    <h2>三、執行結果實測（執行結果）</h2>
+    <p>程式執行時輸入標的名稱，即可即時顯示個股優勢、風險與建議：</p>
+    <div class="terminal" style="color: #f1f5f9;">
+        <div class="terminal-header">Execution Result Demo</div>
+        === 📊 AI 股票與 ETF 投資分析助手 ===<br>
+        請輸入欲分析的股票名稱或標的 (例如: 台中銀 / 中信金 / 0050): 台中銀<br><br>
+        🤖 AI 正在進行分析與串流輸出中...<br><br>
+        <span style="color: #4ade80;">【台中銀 (2812) 投資特色分析】</span><br>
+        1. <b>核心優勢：</b>營運表現穩健，持續發放股票與現金股利，價量累積圖表現良好。<br>
+        2. <b>潛在風險：</b>需留意整體金融市場放款利差與利率循環變動。<br>
+        3. <b>投資建議：</b>適合中長期存股族群分批佈局。<br><br>
+        ✅ 分析完成！
+    </div>
+
+    <!-- 四、AI 評估比較表 (加分項) -->
+    <h2>四、本地 LLM (Ollama) vs 雲端 LLM (Gemini) 評估表</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>比較項目</th>
+                <th>本地模型 (如 Ollama / Llama 3)</th>
+                <th>雲端模型 (如 Gemini 2.5 Flash) 🌟 本專案採用</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>回應速度與算力</b></td>
+                <td>受限於本機 GPU/RAM，推論速度較慢</td>
+                <td>雲端高速算力，支援<b>即時串流 (Streaming)</b> 輸出</td>
+            </tr>
+            <tr>
+                <td><b>資料隱私與安全性</b></td>
+                <td>100% 本地運算，資料絕不上雲</td>
+                <td>資料經 API 傳送，需嚴格透過 <code>.gitignore</code> 防護金鑰[cite: 1]</td>
+            </tr>
+            <tr>
+                <td><b>部署與運作成本</b></td>
+                <td>需自行配置硬體環境與模型權重</td>
+                <td>零硬體門檻，隨插即用，極適合 GitHub Actions CI/CD</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 五、AI 使用說明 -->
+    <h2>五、AI 使用說明與賦能體驗</h2>
+    <div class="highlight-box">
+        <ul>
+            <li><b>工具應用：</b>活用 VS Code、Google Gemini 2.5 Flash API 及 GitHub Actions。</li>
+            <li><b>開發賦能：</b>運用 AI 輔助建立語法架構、除錯 Python 環境與構建 Docker 化環境[cite: 7]。</li>
+            <li><b>機敏安全驗證：</b>驗證 <code>.gitignore</code> 安全隔離，確保包含 <code>LLM_API_KEY</code> 之 <code>.env</code> 絕不上傳至版本控制歷史中[cite: 1]。</li>
+        </ul>
+    </div>
+</div>
+
 </body>
 </html>
