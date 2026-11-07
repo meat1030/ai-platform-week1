@@ -12,7 +12,7 @@
 ## 🛡️ 安全說明
 機敏資訊 `.env` 檔案已列入 `.gitignore` 防護，絕不出現在版本控制與 Commit 歷史中。
 
-<h2>五、本地 vs 雲端 LLM 比較表</h2>
+<h2>本地 vs 雲端 LLM 比較表</h2>
 <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
     <tr style="background-color: #edf2f7;">
         <th style="padding: 8px;">比較項目</th>
